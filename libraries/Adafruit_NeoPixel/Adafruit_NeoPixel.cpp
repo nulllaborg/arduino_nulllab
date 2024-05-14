@@ -1664,6 +1664,110 @@ void Adafruit_NeoPixel::show(void) {
   }
 #endif // NEO_KHZ400
 
+// 32 MHz(ish) AVR --------------------------------------------------------
+#elif (F_CPU == 32000000L)
+	
+#if defined(NEO_KHZ400) // 800 KHz check needed only if 400 KHz support enabled
+  if (is800KHz) {
+#endif
+
+	// 40 inst. clocks per bit: HHHHHHHHHHxxxxxxxxxxxxxxxxLLLLLLLLLLLLLL
+    // ST instructions:         ^        ^                ^       (T=0,10,26)
+	
+    volatile uint8_t next, bit;
+
+    hi = *port | pinMask;
+    lo = *port & ~pinMask;
+    next = lo;
+    bit = 8;
+
+    asm volatile("head40:"
+                 "\n\t" // Clk  Pseudocode    (T =  0)
+                 "st   %a[port],  %[hi]"
+                 "\n\t" // 2    PORT = hi     (T =  2)
+                 "sbrc %[byte],  7"
+                 "\n\t" // 1-2  if(b & 128)
+                 "mov  %[next], %[hi]"
+                 "\n\t" // 0-1   next = hi    (T =  4)
+                 "dec  %[bit]"
+				 "\n\t" // 1    bit--         (T =  5)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T =  7)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T =  9)
+				 "nop"
+                 "\n\t" // 1    nop           (T = 10)
+                 "st   %a[port],  %[next]"
+                 "\n\t" // 2    PORT = next   (T =  12)
+                 "mov  %[next] ,  %[lo]"
+                 "\n\t" // 1    next = lo     (T =  13)
+                 "breq nextbyte40"
+                 "\n\t" // 1-2  if(bit == 0) (from dec above)
+                 "rol  %[byte]"
+                 "\n\t" // 1    b <<= 1       (T = 15)
+                 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 17)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 19)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 21)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 23)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 25)
+                 "nop"
+                 "\n\t" // 1    nop           (T = 26)
+                 "st   %a[port],  %[lo]"
+                 "\n\t" // 2    PORT = lo     (T = 28)
+                 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 30)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 32)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 34)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 36)
+                 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 38)
+                 "rjmp head40"
+                 "\n\t" // 2    -> head40 (next bit out)
+                 "nextbyte40:"
+                 "\n\t" //                    (T = 15)
+                 "ldi  %[bit]  ,  8"
+                 "\n\t" // 1    bit = 8       (T = 16)
+                 "ld   %[byte] ,  %a[ptr]+"
+                 "\n\t" // 2    b = *ptr++    (T = 18)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 20)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 22)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 24)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 26)
+                 "st   %a[port], %[lo]"
+                 "\n\t" // 2    PORT = lo     (T = 28)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 30)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 32)
+				 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 34)
+                 "rjmp .+0"
+                 "\n\t" // 2    nop nop       (T = 36)
+                 "sbiw %[count], 1"
+                 "\n\t" // 2    i--           (T = 38)
+                 "brne head40"
+                 "\n" // 2    if(i != 0) -> (next byte)
+                 : [port] "+e"(port), [byte] "+r"(b), [bit] "+r"(bit),
+                   [next] "+r"(next), [count] "+w"(i)
+                 : [ptr] "e"(ptr), [hi] "r"(hi), [lo] "r"(lo));
+
+#if defined(NEO_KHZ400)
+  } else { // 400 KHz
+  }
+#endif // NEO_KHZ400
+
 #else
 #error "CPU SPEED NOT SUPPORTED"
 #endif // end F_CPU ifdefs on __AVR__
