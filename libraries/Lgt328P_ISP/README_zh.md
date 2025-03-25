@@ -66,11 +66,15 @@ SWD烧录连线如下图
 
 ![lgt-isp-download](./lgt-isp-connect.png)
 
+![lgt-isp-download](./lgt-isp-connect_TSSOP20.png)
+
 1、烧录bootloader
 
 ![LG_ISP_boadchoice](./LG_ISP_boadchoice.png)
 
-2、由于LGT8F328P的在使用eerom情况下，如果还要使用bootloader那么实际使用flash大小只有32k-2k(模拟eerom)-1k(bootloader) = 29k，在很多场景下比如grbl，T12等大型项目使用 flash不够用，那么我们可以使用bootloader，这样我们也需要借助编程器直接上传程序
+2、直接烧录程序(TSSOP20)
+
+由于LGT8F328P的在使用eerom情况下，如果还要使用bootloader那么实际使用flash大小只有32k-2k(模拟eerom)-1k(bootloader) = 29k，在很多场景下比如grbl，T12等大型项目使用 flash不够用，那么我们可以使用bootloader，这样我们也需要借助编程器直接上传程序
 
 如下图
 
