@@ -33,18 +33,21 @@
 安装包
 
 ### 方法一、网络安装
-1、文件->首选项，得到如下界面
+1、**文件**  --> **首选项**，得到如下界面
 
 2、在附加开发板管理器网址输入如下网址：
->  http://39.96.172.95:18080/nulllab/package_nulllab_boards_index_zh.json
+
+>  https://exquisite-zuccutto-4ca32b.netlify.app/package_nulllab_boards_index_zh.json
 
 如果上面的网站打不开可以试下另外一个
-> https://cdn.jsdelivr.net/gh/nulllaborg/arduino_nulllab/package_nulllab_boards_index_zh.json
+> http://39.96.172.95:18080/nulllab/package_nulllab_boards_index_zh.json
 
 ![](./doc/pic/option_zh.png)
 
-3、工具->开发板->开发板管理
+3、**工具->开发板->开发板管理**
 搜索nulllab,选择最新版本安装（如果搜索不到，请安装arduino IDE1.8.15以上）
+
+![boards_manager_zh](./pic/boards_manager_zh.png)
 
 ### 方法二、手动安装
 1、[**直接点击下载最新LGT Arduino IDE软件支持包**](http://39.96.172.95:18080/nulllab/nulllab_arduino-1.0.9.zip)
