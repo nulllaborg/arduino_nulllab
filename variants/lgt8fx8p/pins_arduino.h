@@ -29,6 +29,10 @@
 #define	__LGT8F__
 #endif
 
+#ifndef __LGT8FX8P32__
+#define __LGT8FX8P32__
+#endif
+
 #include "lgtx8p.h"
 
 static const uint8_t DAC0 = 4;

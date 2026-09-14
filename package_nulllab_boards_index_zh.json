@@ -9,7 +9,27 @@
         "online": "www.null-lab.com"
       },
       "platforms": [
-	       {
+           {
+          "name": "Nulllab_AVR_Compatible_Boards",
+          "architecture": "avr",
+          "version": "1.1.0",
+          "category": "lgt8fx",
+          "url": "https://download.null-lab.com/nulllab_arduino-1.1.0.zip",
+          "archiveFileName": "nulllab_arduino-1.1.0.zip",
+          "checksum": "SHA-256:6befe7efd2fdb14bf6af20c4986d951e554a733480da3bf7606d72beb7bc6b5b",
+          "size": "2312575",
+          "help": {
+            "online": "https://gitee.com/nulllab/nulllab_arduino/issues"
+          },
+          "boards": [
+            {"name": "LGT Mini-Nano"},
+            {"name": "Nulllab Nano/LGT-Nano"},
+            {"name": "Nulllab Mango Uno"},
+            {"name": "Nulllab Orion"},
+            {"name": "DIY Boards"}
+          ]
+        },
+           {
           "name": "Nulllab_AVR_Compatible_Boards",
           "architecture": "avr",
           "version": "1.0.9",

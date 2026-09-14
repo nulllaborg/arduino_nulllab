@@ -35,6 +35,10 @@
 #define __LGT8F_SSOP20__
 #endif
 
+#ifndef __LGT8FX8P20__
+#define __LGT8FX8P20__
+#endif
+
 static const uint8_t DAC0 = 4;
 
 #include "../standard/pins_arduino.h"

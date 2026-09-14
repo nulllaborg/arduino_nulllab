@@ -56,11 +56,17 @@ void pinMode(uint8_t pin, uint8_t mode)
 	} else if(pin == E0 || pin == E2) {
 		MCUSR = 0xff;
 		MCUSR = 0xff;	// disable SWD/SWC for E0/E2	
-	} else if(pin == E6) {
+	}
+
+#if defined (__LGT8FX8P32__) || defined (__LGT8FX8P48__)
+
+	else if(pin == E6) {
 		GPIOR0 = PMX2 | 0x2;
 		PMX2 = 0x80;	
 		PMX2 = GPIOR0;	// enable PE6 for GPIO
 	}
+#endif
+
 #endif
 
 	if (port == NOT_A_PIN) return;

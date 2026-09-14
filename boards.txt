@@ -38,7 +38,7 @@ Mango.build.board=AVR_LARDU_328E
 #### Nano     ####
 #############################
 
-Nano.name= Nulllab Nano/Maker-Nano
+Nano.name= Nulllab Nano/LGT-Nano
 Nano.vid.0=0x2341
 Nano.pid.0=0x0137
 
@@ -67,7 +67,7 @@ Nano.build.board=AVR_LARDU_328E
 #### Mini Nano      ####
 #############################
 
-Mini.name= Mini Nano
+Mini.name=LGT Mini Nano
 Mini.upload.tool=avrdude
 Mini.upload.protocol=arduino
 Mini.build.eerom_size=1
@@ -78,15 +78,15 @@ Mini.bootloader.tool=avrdude
 Mini.bootloader.high_fuses=0xff
 Mini.bootloader.low_fuses=0xff
 Mini.bootloader.extended_fuses=0x07
-Mini.bootloader.path=lgt8fx8ps20
-Mini.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328p.hex
+Mini.bootloader.path=lgt8fx8p
+Mini.bootloader.file=lgt8fx8p/optiboot_lgt8f328p_57600_int32M.hex
 Mini.bootloader.unlock_bits=0x3f
 Mini.bootloader.lock_bits=0x3f
 Mini.build.mcu=atmega328p
 Mini.build.clock_source=1
 Mini.build.f_cpu=16000000L
 Mini.build.core=lgt8f
-Mini.build.variant=lgt8fx8p
+Mini.build.variant=lgt8fx8p20
 Mini.build.board=AVR_LARDU_328E
 
 #############################
@@ -98,7 +98,7 @@ Orion.upload.protocol=arduino
 Orion.build.eerom_size=1
 Orion.upload.maximum_size=29696
 Orion.upload.maximum_data_size=2048
-Orion.upload.speed=57600
+Orion.upload.speed=115200
 Orion.bootloader.tool=avrdude
 Orion.bootloader.high_fuses=0xff
 Orion.bootloader.low_fuses=0xff
@@ -208,8 +208,8 @@ Diy.menu.variant.modelP.build.variant=lgt8fx8p
 
 Diy.menu.variant.modelP_SSOP20=LGT328P-SSOP20
 Diy.menu.variant.modelP_SSOP20.upload.speed=57600
-Diy.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
-Diy.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
+Diy.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8p20
+Diy.menu.variant.modelP_SSOP20.build.variant=lgt8fx8p20
 
 # Upload Speed
 Diy.menu.upload_speed.baud115200=115200

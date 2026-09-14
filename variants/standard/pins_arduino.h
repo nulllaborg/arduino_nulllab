@@ -167,6 +167,13 @@ static const uint8_t A11 = 26;
 #define	D37	37	/* PF5 */
 #define	D38	38	/* PF6 */
 #define	D39	39	/* PF7 */
+
+#elif defined(__LGT8FX8P20__)
+#define D27	27	/* PB6 */
+#define D28	28	/* PB7 */
+#define E0	22
+#define E2	23
+
 #else
 #define E0	22
 #define E2	23
