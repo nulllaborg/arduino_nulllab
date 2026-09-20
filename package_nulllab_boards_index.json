@@ -9,15 +9,57 @@
         "online": "www.nulllab.org"
       },
       "platforms": [
-        {
+           {
           "name": "Nulllab_AVR_Compatible_Boards",
           "architecture": "avr",
-          "version": "2.0.0",
+          "version": "1.1.0",
           "category": "lgt8fx",
-          "url": "https://github.com/nulllaborg/arduino_nulllab/archive/master.zip",
-          "archiveFileName": "master.zip",
+          "url": "https://github.com/nulllaborg/arduino_nulllab/releases/download/v1.1.0/nulllab_arduino-1.1.0.zip",
+          "archiveFileName": "nulllab_arduino-1.1.0.zip",
+          "checksum": "SHA-256:f230a56c7f59322ea960d2b4025b434556bb8597c03c6f3797cec3f8ac94a292",
+          "size": "2312575",
           "help": {
-            "online": "https://github.com/nulllaborg/arduino_nulllab/issues"
+            "online": "https://github.com/nulllaborg/nulllab_arduino/issues"
+          },
+          "boards": [
+            {"name": "LGT Mini-Nano"},
+            {"name": "Nulllab Nano/LGT-Nano"},
+            {"name": "Nulllab Mango Uno"},
+            {"name": "Nulllab Orion"},
+            {"name": "DIY Boards"}
+          ]
+        },
+           {
+          "name": "Nulllab_AVR_Compatible_Boards",
+          "architecture": "avr",
+          "version": "1.0.9",
+          "category": "lgt8fx",
+          "url": "https://github.com/nulllaborg/arduino_nulllab/releases/download/v1.0.9/nulllab_arduino-1.0.9.zip",
+          "archiveFileName": "nulllab_arduino-1.0.9.zip",
+          "checksum": "SHA-256:80a84119bd26379b206d54b9cefec3676ef1c5f03f46f752c8e34b61f5fb72a4",
+          "size": "2025110",
+          "help": {
+            "online": "https://github.com/nulllaborg/nulllab_arduino/issues"
+          },
+          "boards": [
+            {"name": "Nulllab Mini-Nano"},
+            {"name": "Nulllab Nano/Maker-Nano"},
+            {"name": "Nulllab Mango Uno"},
+            {"name": "Nulllab Orion"},
+            {"name": "DIY Boards"}
+          ]
+        },
+	       {
+          "name": "Nulllab_AVR_Compatible_Boards",
+          "architecture": "avr",
+          "version": "1.0.8",
+          "category": "lgt8fx",
+          "url": "https://github.com/nulllaborg/arduino_nulllab/releases/download/v1.0.8/nulllab_arduino-1.0.8.zip",
+          "archiveFileName": "nulllab_arduino-1.0.8.zip",
+          "checksum": "SHA-256:644f548ef133271c677270d6331da720fe31aca4976a2123afa3b345a5bd3394",
+          "size": "2025081",
+          "help": {
+            "online": "https://github.com/nulllaborg/nulllab_arduino/issues"
           },
           "boards": [
             {"name": "Nulllab Mini-Nano"},
